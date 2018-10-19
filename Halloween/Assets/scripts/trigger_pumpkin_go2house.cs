@@ -22,7 +22,7 @@ public class trigger_pumpkin_go2house : MonoBehaviour {
         if (other.gameObject.tag == "MainCamera")
         {
             house.SetActive(true);
-            pumpkin_move.speed = 2;
+            pumpkin_move.speed = 4;
             pumpkin_lookat.target = house.transform;
             pumpkin_move.Go(zeroPoint);
             this.gameObject.SetActive(false);

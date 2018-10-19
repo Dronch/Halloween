@@ -15,7 +15,7 @@ public class moving : MonoBehaviour {
     MovingBehavior state = MovingBehavior.NoMove;
     Transform[] mpath;
     public float speed = 0.5f;
-    public float reachDist = 1.0f;
+    public float reachDist = 0.1f;
     int currentPoint = 0;
     bool waiting = false;
     public float waiting_min = 0;

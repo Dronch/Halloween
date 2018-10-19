@@ -8,7 +8,7 @@ public class trigger_pumpkin_arrived_house : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        pumpkin.GetComponent<update_lookat>().target = Camera.main.transform;
+        pumpkin.GetComponent<update_lookat>().target = Camera.main.gameObject.transform.Find("lookingto");
         gameObject.SetActive(false);
     }
 }
