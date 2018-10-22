@@ -33,6 +33,7 @@ public class Manager : MonoBehaviour {
     // house
     public AudioClip about_house;
     public GameObject house;
+    public Transform patrool_camera_house;
     public Transform patrol_house;
     public Transform zeroPointHouse;
 
@@ -50,7 +51,11 @@ public class Manager : MonoBehaviour {
 
         pumpkin_moving.Patrol(GetChildren(patrol_graveyard));
 
-        StartCoroutine(WaitIntro());
+        //StartCoroutine(WaitIntro());
+
+        //tmp
+        camera_dmo.InitTarget(graveyard.transform);
+        gonext();
     }
 
     IEnumerator WaitIntro()
@@ -95,10 +100,11 @@ public class Manager : MonoBehaviour {
 
     IEnumerator WaitHouseIntro()
     {
-        Camera.main.transform.LookAt(house.transform);
-        yield return new WaitForSeconds(5);
+        camera_moving.Loop(GetChildren(patrool_camera_house));
+        //yield return new WaitForSeconds(5);
         pumpkin_handler.Say(about_house);
-        yield return new WaitForSeconds(intro.length);
+        yield return new WaitForSeconds(about_house.length);
+        //Camera.main.GetComponent<update_lookat>().target = null;
         camera_dmo.InitTarget(house.transform);
     }
 
