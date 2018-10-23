@@ -9,6 +9,8 @@ public class candy_handler : MonoBehaviour {
 
     public void Action()
     {
+        if (!m)
+            m = GameObject.Find("GameManager").GetComponent<Manager>();
         AudioSource.PlayClipAtPoint(ac, transform.position);
         gameObject.SetActive(false);
         m.gonext();

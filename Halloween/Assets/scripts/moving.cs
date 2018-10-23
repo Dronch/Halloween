@@ -20,8 +20,10 @@ public class moving : MonoBehaviour {
     bool waiting = false;
     public float waiting_min = 0;
     public float waiting_max = 4;
+    update_lookat ul;
 
     void Start() {
+        ul = GetComponent<update_lookat>();
     }
 
     void Update() {
@@ -36,6 +38,11 @@ public class moving : MonoBehaviour {
         {
             Stop();
             return;
+        }
+
+        if (!ul)
+        {
+            transform.LookAt(mpath[currentPoint]);
         }
 
         float step = speed * Time.deltaTime;
