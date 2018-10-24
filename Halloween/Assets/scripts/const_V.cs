@@ -32,8 +32,9 @@ public class const_V : MonoBehaviour {
     IEnumerator init()
     {
         r.enabled = false;
-        yield return new WaitForSeconds(Random.Range(0.0f, 0.5f));
+        yield return new WaitForSeconds(Random.Range(0.0f, 1.0f));
         r.enabled = true;
         transform.position = start;
+        transform.rotation = new Quaternion(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360), 0);
     }
 }

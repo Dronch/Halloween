@@ -7,6 +7,9 @@ public class object_handler : MonoBehaviour {
     public AudioClip ac;
     public bool animate;
     public GameObject onCreate;
+    public GameObject receive;
+    public GameObject show;
+    public AudioClip ac_idle;
     AudioSource audioSource;
     Animator animator;
 
@@ -25,5 +28,18 @@ public class object_handler : MonoBehaviour {
             animator.SetTrigger("Action");
         if (onCreate)
             Instantiate(onCreate, transform.position, transform.rotation);
+        if (receive)
+            receive.SendMessage("Action");
+        if (show)
+        {
+            show.SetActive(!show.active);
+        }
+    }
+
+    public void Sound()
+    {
+        if (ac_idle && audioSource)
+            if (!audioSource.isPlaying)
+                audioSource.PlayOneShot(ac_idle);
     }
 }

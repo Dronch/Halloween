@@ -39,10 +39,11 @@ public class Manager : MonoBehaviour {
     public Transform patrol_house;
     public Transform zeroPointHouse;
     public Transform route2child;
+    public GameObject goblin;
+    public Transform goblin_route;
 
     //child
     public AudioClip about_child;
-    public AudioClip child_end;
     public GameObject child;
     public Transform patrool_camera_child;
     public Transform patrol_child;
@@ -65,12 +66,7 @@ public class Manager : MonoBehaviour {
 
         witch.GetComponent<moving>().Patrol(GetChildren(witch_route));
         girl.GetComponent<moving>().Patrol(GetChildren(girl_route));
-
-        //tmp
-        current_stage = stage.child;
-        startChild();
-        //activate zeropoint and stonemonster and poin4
-        return;
+        goblin.GetComponent<moving>().Loop(GetChildren(goblin_route));
 
         pumpkin_moving.Patrol(GetChildren(patrol_graveyard));
 
